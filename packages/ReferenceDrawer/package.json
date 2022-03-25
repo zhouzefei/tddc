@@ -1,0 +1,16 @@
+{
+  "name": "@tdd/reference-drawer",
+  "version": "1.0.1",
+  "description": "关联引用抽屉",
+  "author": "周泽飞 <zefei.zhou@tongdun.net>",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "antd": ">=3.20.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
