@@ -1,7 +1,7 @@
 {
-  "name": "@tdd/reference-drawer",
-  "version": "1.0.1",
-  "description": "关联引用抽屉",
+  "name": "@tdd/reference",
+  "version": "1.0.0",
+  "description": "关联引用",
   "author": "周泽飞 <zefei.zhou@tongdun.net>",
   "license": "ISC",
   "main": "lib/index.js",
