@@ -67,7 +67,7 @@ const ReferenceCheck = (props) => {
              });
          });
     }else{
-        message.error("请提供一个可靠的查询");
+        message.error("请提供一个可靠的查询请求");
     }
     
 };
