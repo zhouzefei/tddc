@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Modal, Button, Alert } from 'antd';
+import { Modal, Button, Alert, message } from 'antd';
 import PropTypes from "prop-types";
 import { ReferenceInfo } from "../ReferenceInfo";
 
@@ -49,23 +49,27 @@ const ReferenceCheck = (props) => {
         document.body.appendChild(modalWrap);
 
     };
-
-    return new Promise((resolve, reject)=>{
-       return rq().then(res=>{
-            const { success, data } = res || {};
-            if (success) {
-                const { type } = data || {};
-                if (type === 'NO_EXIST') {
-                    resolve(type);
-                }
-                if (['WEAK', 'STRONG'].includes(type)) {
-                    appendModal(resolve, data);
-                }
-            } else {
-                reject('查询关联关系失败');
-            }
-        });
-    });
+    if(rq && typeof rq==="function"){
+        return new Promise((resolve, reject)=>{
+            return rq().then(res=>{
+                 const { success, data } = res || {};
+                 if (success) {
+                     const { type } = data || {};
+                     if (type === 'NO_EXIST') {
+                         resolve(type);
+                     }
+                     if (['WEAK', 'STRONG'].includes(type)) {
+                         appendModal(resolve, data);
+                     }
+                 } else {
+                     reject('查询关联关系失败');
+                 }
+             });
+         });
+    }else{
+        message.error("请提供一个可靠的查询");
+    }
+    
 };
 
 ReferenceCheck.propTypes={
