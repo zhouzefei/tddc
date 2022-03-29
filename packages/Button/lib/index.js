@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.Button = void 0;
 
 var Button = function Button(props) {
-  return /*#__PURE__*/React.createElement("button", props, "22223");
+  return /*#__PURE__*/React.createElement("button", props, "222sss23");
 };
 
 exports.Button = Button;
