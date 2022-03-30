@@ -62,6 +62,7 @@ var ReferenceCheck = function ReferenceCheck(props) {
         key: "submit",
         type: "primary",
         onClick: function onClick() {
+          removeModal();
           resolve(type);
         }
       }, "\u4E0B\u4E00\u6B65")]

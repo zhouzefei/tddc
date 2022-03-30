@@ -28,12 +28,7 @@ export const ReferenceInfo = (props) => {
               }
               if (c.dataIndex === goName) {
                 content = (
-                  <a
-                    onClick={(evt) => {
-                      evt.preventDefault();
-                      window.push(record?.goLink);
-                    }}
-                  >
+                  <a href={record?.goLink} target="_blank" rel="noreferrer">
                     {t}
                   </a>
                 );

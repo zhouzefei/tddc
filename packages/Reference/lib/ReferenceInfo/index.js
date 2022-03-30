@@ -87,10 +87,9 @@ var ReferenceInfo = function ReferenceInfo(props) {
 
           if (c.dataIndex === goName) {
             content = /*#__PURE__*/React.createElement("a", {
-              onClick: function onClick(evt) {
-                evt.preventDefault();
-                window.push(record == null ? void 0 : record.goLink);
-              }
+              href: record == null ? void 0 : record.goLink,
+              target: "_blank",
+              rel: "noreferrer"
             }, t);
           }
 

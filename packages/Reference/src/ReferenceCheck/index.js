@@ -27,6 +27,7 @@ const ReferenceCheck = (props) => {
               key="submit"
               type="primary"
               onClick={() => {
+                removeModal();
                 resolve(type);
               }}
             >
