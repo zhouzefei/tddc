@@ -25,6 +25,8 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 var _ReferenceInfo = require("../ReferenceInfo");
 
+require("./index.less");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var ReferenceCheck = function ReferenceCheck(props) {
@@ -63,13 +65,17 @@ var ReferenceCheck = function ReferenceCheck(props) {
           resolve(type);
         }
       }, "\u4E0B\u4E00\u6B65")]
-    }, type === 'WEAK' && /*#__PURE__*/React.createElement(_alert["default"], {
+    }, type === 'WEAK' && /*#__PURE__*/React.createElement("div", {
+      className: "mb10"
+    }, /*#__PURE__*/React.createElement(_alert["default"], {
       type: "warning",
       message: "\u5B58\u5728\u5F31\u5F15\u7528\u5173\u7CFB\uFF0C\u8C28\u614E\u64CD\u4F5C"
-    }), type === 'STRONG' && /*#__PURE__*/React.createElement(_alert["default"], {
+    })), type === 'STRONG' && /*#__PURE__*/React.createElement("div", {
+      className: "mb10"
+    }, /*#__PURE__*/React.createElement(_alert["default"], {
       type: "error",
       message: "\u5B58\u5728\u5F3A\u5F15\u7528\u5173\u7CFB\uFF0C\u7981\u6B62\u64CD\u4F5C"
-    }), /*#__PURE__*/React.createElement("div", {
+    })), /*#__PURE__*/React.createElement("div", {
       className: "relation-reference-detail"
     }, /*#__PURE__*/React.createElement(_ReferenceInfo.ReferenceInfo, {
       referenceData: referenceData,

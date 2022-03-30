@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import { Modal, Button, Alert, message } from 'antd';
 import { ReferenceInfo } from '../ReferenceInfo';
+import './index.less';
 
 const ReferenceCheck = (props) => {
   const { rq, checkReferResponse, orgMap = {}, appList = [] } = props || {};
@@ -34,8 +35,16 @@ const ReferenceCheck = (props) => {
           ),
         ]}
       >
-        {type === 'WEAK' && <Alert type="warning" message="存在弱引用关系，谨慎操作" />}
-        {type === 'STRONG' && <Alert type="error" message="存在强引用关系，禁止操作" />}
+        {type === 'WEAK' && (
+          <div className="mb10">
+            <Alert type="warning" message="存在弱引用关系，谨慎操作" />
+          </div>
+        )}
+        {type === 'STRONG' && (
+          <div className="mb10">
+            <Alert type="error" message="存在强引用关系，禁止操作" />
+          </div>
+        )}
         <div className="relation-reference-detail">
           <ReferenceInfo referenceData={referenceData} orgMap={orgMap} appList={appList} />
         </div>

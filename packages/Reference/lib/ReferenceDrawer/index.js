@@ -82,7 +82,7 @@ var ReferenceDrawer = function ReferenceDrawer(props) {
         }
 
         if (!(res != null && res.success)) {
-          _message2["default"].error(res.message || "查询引用关系失败");
+          _message2["default"].error(res.message || '查询引用关系失败');
         }
       })["finally"](function () {
         setReferenceLoad(false);
@@ -120,7 +120,7 @@ ReferenceDrawer.propTypes = {
   appList: _propTypes["default"].array
 };
 ReferenceDrawer.defaultProps = {
-  title: "",
+  title: '',
   data: null,
   visible: false,
   orgMap: {},

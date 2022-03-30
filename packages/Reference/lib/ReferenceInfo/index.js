@@ -43,12 +43,15 @@ var ReferenceInfo = function ReferenceInfo(props) {
       _props$appList = props.appList,
       appList = _props$appList === void 0 ? [] : _props$appList,
       _props$description = props.description,
-      description = _props$description === void 0 ? "" : _props$description;
+      description = _props$description === void 0 ? '' : _props$description;
   return /*#__PURE__*/React.createElement("div", {
     className: "reference-body"
   }, !(referenceData != null && referenceData.length) && /*#__PURE__*/React.createElement(_empty["default"], {
-    description: description || "暂无数据",
-    image: _empty["default"].PRESENTED_IMAGE_SIMPLE
+    description: description || '暂无数据',
+    image: _empty["default"].PRESENTED_IMAGE_SIMPLE,
+    imageStyle: {
+      marginTop: 120
+    }
   }), referenceData == null ? void 0 : referenceData.map(function (d, dIndex) {
     var _renderColumns;
 
@@ -84,13 +87,16 @@ var ReferenceInfo = function ReferenceInfo(props) {
 
           if (c.dataIndex === goName) {
             content = /*#__PURE__*/React.createElement("a", {
-              href: record == null ? void 0 : record.goLink
+              onClick: function onClick(evt) {
+                evt.preventDefault();
+                window.push(record == null ? void 0 : record.goLink);
+              }
             }, t);
           }
 
           return /*#__PURE__*/React.createElement(_tooltip["default"], {
             title: content
-          }, content || "- -");
+          }, content || '- -');
         };
 
         if (i === (columns == null ? void 0 : columns.length) - 1) {

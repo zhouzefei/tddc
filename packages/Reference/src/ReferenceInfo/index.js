@@ -27,7 +27,16 @@ export const ReferenceInfo = (props) => {
                 content = appList.find((a) => a.key === t)?.name || t;
               }
               if (c.dataIndex === goName) {
-                content = <a href={record?.goLink}>{t}</a>;
+                content = (
+                  <a
+                    onClick={(evt) => {
+                      evt.preventDefault();
+                      window.push(record?.goLink);
+                    }}
+                  >
+                    {t}
+                  </a>
+                );
               }
               return <Tooltip title={content}>{content || '- -'}</Tooltip>;
             };
