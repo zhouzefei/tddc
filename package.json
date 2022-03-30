@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhouzefei/lerna-start.git"
+    "url": "git+https://github.com/TDFE/tddc.git"
   },
   "author": "zefei.zhou",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhouzefei/lerna-start/issues"
+    "url": "https://github.com/TDFE/tddc/issues"
   },
-  "homepage": "https://github.com/zhouzefei/lerna-start#readme",
+  "homepage": "https://github.com/TDFE/tddc#readme",
   "keywords": [
     "td",
     "react",
