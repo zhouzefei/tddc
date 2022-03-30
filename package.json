@@ -8,7 +8,7 @@
     "export-static-storybook": "build-storybook -c .storybook -o lerna-resource",
     "install": "lerna bootstrap --hoist",
     "build": "lerna exec --parallel -- babel src -d lib  --copy-files --config-file ../babel.config.js &&lerna exec --parallel -- rm -rf lib/*.stories.js",
-    "publish-packages": "lerna publish from-packages"
+    "publish-packages": "lerna publish from-package"
   },
   "repository": {
     "type": "git",
