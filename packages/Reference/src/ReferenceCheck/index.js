@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom';
 import { Modal, Button, Alert, message } from 'antd';
-import PropTypes from 'prop-types';
 import { ReferenceInfo } from '../ReferenceInfo';
 
 const ReferenceCheck = (props) => {
-  const { rq, orgMap = {}, appList = [] } = props || {};
+  const { rq, checkReferResponse, orgMap = {}, appList = [] } = props || {};
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
     const removeModal = () => {
@@ -65,15 +64,5 @@ const ReferenceCheck = (props) => {
   } else {
     message.error('请提供一个可靠的查询请求!!!');
   }
-};
-
-ReferenceCheck.propTypes = {
-  rq: PropTypes.func,
-  orgMap: PropTypes.object,
-  appList: PropTypes.array,
-};
-ReferenceCheck.defaultProps = {
-  orgMap: {},
-  appList: [],
 };
 export { ReferenceCheck };

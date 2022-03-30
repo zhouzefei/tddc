@@ -17,6 +17,10 @@ require("antd/es/tooltip/style");
 
 var _tooltip = _interopRequireDefault(require("antd/es/tooltip"));
 
+require("antd/es/message/style");
+
+var _message2 = _interopRequireDefault(require("antd/es/message"));
+
 var _react = require("react");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
@@ -25,7 +29,11 @@ var _ReferenceInfo = require("../ReferenceInfo");
 
 require("./index.less");
 
+var _excluded = ["fetchReference", "data", "orgMap", "appList", "title", "visible", "onClose"];
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -39,17 +47,22 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 var ReferenceDrawer = function ReferenceDrawer(props) {
   var fetchReference = props.fetchReference,
       _props$data = props.data,
       data = _props$data === void 0 ? null : _props$data,
-      visible = props.visible,
-      onClose = props.onClose,
-      title = props.title,
       _props$orgMap = props.orgMap,
       orgMap = _props$orgMap === void 0 ? {} : _props$orgMap,
       _props$appList = props.appList,
-      appList = _props$appList === void 0 ? [] : _props$appList;
+      appList = _props$appList === void 0 ? [] : _props$appList,
+      title = props.title,
+      visible = props.visible,
+      onClose = props.onClose,
+      rest = _objectWithoutProperties(props, _excluded);
 
   var _useState = (0, _react.useState)(data),
       _useState2 = _slicedToArray(_useState, 2),
@@ -65,22 +78,26 @@ var ReferenceDrawer = function ReferenceDrawer(props) {
     if (visible && fetchReference) {
       fetchReference().then(function (res) {
         if (res != null && res.success && res != null && res.data) {
-          setReferenceData((res == null ? void 0 : res.data) || null);
+          setReferenceData((res == null ? void 0 : res.data) || []);
+        }
+
+        if (!(res != null && res.success)) {
+          _message2["default"].error(res.message || "查询引用关系失败");
         }
       })["finally"](function () {
         setReferenceLoad(false);
       });
     }
   }, [visible, fetchReference]);
-  return /*#__PURE__*/React.createElement(_drawer["default"], {
+  return /*#__PURE__*/React.createElement(_drawer["default"], _extends({
     className: "reference-drawer",
     width: 650,
-    onClose: onClose,
-    visible: visible,
     title: /*#__PURE__*/React.createElement(_tooltip["default"], {
       title: title
-    }, title || '')
-  }, referenceLoad && /*#__PURE__*/React.createElement(_spin["default"], {
+    }, title || ''),
+    onClose: onClose,
+    visible: visible
+  }, rest), referenceLoad && /*#__PURE__*/React.createElement(_spin["default"], {
     className: "globalSpin",
     tip: "\u67E5\u8BE2\u4E2D..."
   }), !referenceLoad && /*#__PURE__*/React.createElement("div", {

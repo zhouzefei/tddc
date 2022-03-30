@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Drawer, Spin, Tooltip } from 'antd';
-import PropTypes from "prop-types";
-import { ReferenceInfo } from "../ReferenceInfo";
+import { Drawer, Spin, Tooltip, message } from 'antd';
+import PropTypes from 'prop-types';
+import { ReferenceInfo } from '../ReferenceInfo';
 import './index.less';
 
 const ReferenceDrawer = (props) => {
-  const { fetchReference, data = null, visible, onClose, title, orgMap = {}, appList = [] } = props;
+  const { fetchReference, data = null, orgMap = {}, appList = [], title, visible, onClose, ...rest } = props;
   const [referenceData, setReferenceData] = useState(data);
   const [referenceLoad, setReferenceLoad] = useState(!data);
   useEffect(() => {
@@ -13,7 +13,10 @@ const ReferenceDrawer = (props) => {
       fetchReference()
         .then((res) => {
           if (res?.success && res?.data) {
-            setReferenceData(res?.data || null);
+            setReferenceData(res?.data || []);
+          }
+          if (!res?.success) {
+            message.error(res.message || '查询引用关系失败');
           }
         })
         .finally(() => {
@@ -24,42 +27,36 @@ const ReferenceDrawer = (props) => {
 
   return (
     <Drawer
-      className='reference-drawer'
+      className="reference-drawer"
       width={650}
+      title={<Tooltip title={title}>{title || ''}</Tooltip>}
       onClose={onClose}
       visible={visible}
-      title={<Tooltip title={title}>{title || ''}</Tooltip>}
+      {...rest}
     >
       {referenceLoad && <Spin className="globalSpin" tip="查询中..."></Spin>}
-      {
-        !referenceLoad && 
+      {!referenceLoad && (
         <div className="drawer-reference-body">
-          <ReferenceInfo
-            referenceData={referenceData||[]}
-            appList={appList||[]}
-            orgMap={orgMap||{}}
-          />
+          <ReferenceInfo referenceData={referenceData || []} appList={appList || []} orgMap={orgMap || {}} />
         </div>
-      }
+      )}
     </Drawer>
   );
 };
-ReferenceDrawer.propTypes={
+ReferenceDrawer.propTypes = {
   title: PropTypes.string,
   data: PropTypes.array,
   visible: PropTypes.bool,
   onClose: PropTypes.func,
   fetchReference: PropTypes.func,
   orgMap: PropTypes.object,
-  appList: PropTypes.array
+  appList: PropTypes.array,
 };
-ReferenceDrawer.defaultProps={
-  title:"",
-  data:null,
+ReferenceDrawer.defaultProps = {
+  title: '',
+  data: null,
   visible: false,
-  orgMap:{},
-  appList: []
+  orgMap: {},
+  appList: [],
 };
-export {
-  ReferenceDrawer
-};
+export { ReferenceDrawer };

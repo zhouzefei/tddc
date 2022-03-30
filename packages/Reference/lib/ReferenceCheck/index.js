@@ -23,8 +23,6 @@ var _button = _interopRequireDefault(require("antd/es/button"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _ReferenceInfo = require("../ReferenceInfo");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -32,6 +30,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var ReferenceCheck = function ReferenceCheck(props) {
   var _ref = props || {},
       rq = _ref.rq,
+      checkReferResponse = _ref.checkReferResponse,
       _ref$orgMap = _ref.orgMap,
       orgMap = _ref$orgMap === void 0 ? {} : _ref$orgMap,
       _ref$appList = _ref.appList,
@@ -81,7 +80,7 @@ var ReferenceCheck = function ReferenceCheck(props) {
     document.body.appendChild(modalWrap);
   };
 
-  if (rq && typeof rq === "function") {
+  if (rq && typeof rq === 'function') {
     return new Promise(function (resolve, reject) {
       return rq().then(function (res) {
         var _ref3 = res || {},
@@ -105,17 +104,8 @@ var ReferenceCheck = function ReferenceCheck(props) {
       });
     });
   } else {
-    _message2["default"].error("请提供一个可靠的查询");
+    _message2["default"].error('请提供一个可靠的查询请求!!!');
   }
 };
 
 exports.ReferenceCheck = ReferenceCheck;
-ReferenceCheck.propTypes = {
-  rq: _propTypes["default"].func,
-  orgMap: _propTypes["default"].object,
-  appList: _propTypes["default"].array
-};
-ReferenceCheck.defaultProps = {
-  orgMap: {},
-  appList: []
-};
