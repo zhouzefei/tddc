@@ -1,4 +1,5 @@
 import { Tooltip, Icon, Table, Row, Empty } from 'antd';
+import AHref from '../AHref';
 import './index.less';
 
 export const ReferenceInfo = (props) => {
@@ -28,9 +29,9 @@ export const ReferenceInfo = (props) => {
               }
               if (c.dataIndex === goName) {
                 content = (
-                  <a href={record?.goLink} target="_blank" rel="noreferrer">
+                  <AHref href={record?.goLink} target="_blank">
                     {t}
-                  </a>
+                  </AHref>
                 );
               }
               return <Tooltip title={content}>{content || '- -'}</Tooltip>;

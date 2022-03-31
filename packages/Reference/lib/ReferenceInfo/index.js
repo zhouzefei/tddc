@@ -25,6 +25,8 @@ require("antd/es/empty/style");
 
 var _empty = _interopRequireDefault(require("antd/es/empty"));
 
+var _AHref = _interopRequireDefault(require("../AHref"));
+
 require("./index.less");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -86,10 +88,9 @@ var ReferenceInfo = function ReferenceInfo(props) {
           }
 
           if (c.dataIndex === goName) {
-            content = /*#__PURE__*/React.createElement("a", {
+            content = /*#__PURE__*/React.createElement(_AHref["default"], {
               href: record == null ? void 0 : record.goLink,
-              target: "_blank",
-              rel: "noreferrer"
+              target: "_blank"
             }, t);
           }
 
