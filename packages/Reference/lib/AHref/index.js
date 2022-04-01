@@ -23,7 +23,7 @@ var _default = function _default(props) {
       onClick: function onClick(evt) {
         evt.preventDefault();
 
-        if (unmountHandle && typeof unmountHandle === "function") {
+        if (unmountHandle && typeof unmountHandle === 'function') {
           unmountHandle();
         }
 

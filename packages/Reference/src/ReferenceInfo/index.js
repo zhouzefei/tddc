@@ -28,13 +28,19 @@ export const ReferenceInfo = (props) => {
                 content = appList.find((a) => a.key === t)?.name || t;
               }
               if (c.dataIndex === goName) {
-                content = (
-                  <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
-                    {t}
-                  </AHref>
+                return (
+                  <Tooltip title={content} placement="topLeft">
+                    <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
+                      {content || '- -'}
+                    </AHref>
+                  </Tooltip>
                 );
               }
-              return <Tooltip title={content}>{content || '- -'}</Tooltip>;
+              return (
+                <Tooltip placement="topLeft" title={content}>
+                  {content || '- -'}
+                </Tooltip>
+              );
             };
             if (i === columns?.length - 1) {
               newC.fixed = 'right';

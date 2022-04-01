@@ -89,14 +89,18 @@ var ReferenceInfo = function ReferenceInfo(props) {
           }
 
           if (c.dataIndex === goName) {
-            content = /*#__PURE__*/React.createElement(_AHref["default"], {
+            return /*#__PURE__*/React.createElement(_tooltip["default"], {
+              title: content,
+              placement: "topLeft"
+            }, /*#__PURE__*/React.createElement(_AHref["default"], {
               href: record == null ? void 0 : record.goLink,
               target: "_blank",
               unmountHandle: unmountHandle
-            }, t);
+            }, content || '- -'));
           }
 
           return /*#__PURE__*/React.createElement(_tooltip["default"], {
+            placement: "topLeft",
             title: content
           }, content || '- -');
         };
