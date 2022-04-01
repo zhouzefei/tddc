@@ -4,7 +4,15 @@ import { ReferenceInfo } from '../ReferenceInfo';
 import './index.less';
 
 const ReferenceCheck = (props) => {
-  const { rq, checkReferResponse, orgMap = {}, appList = [] } = props || {};
+  const {
+    title = '引用关系查看',
+    rq,
+    checkReferResponse,
+    orgMap = {},
+    appList = [],
+    weakMsg = '存在弱引用关系，谨慎操作',
+    strongMsg = '存在强引用关系，禁止操作',
+  } = props || {};
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
     const removeModal = () => {
@@ -12,7 +20,7 @@ const ReferenceCheck = (props) => {
     };
     ReactDOM.render(
       <Modal
-        title="关联引用查看"
+        title={title}
         visible={true}
         width={1000}
         destroyOnClose
@@ -38,12 +46,12 @@ const ReferenceCheck = (props) => {
       >
         {type === 'WEAK' && (
           <div className="mb10">
-            <Alert type="warning" message="存在弱引用关系，谨慎操作" />
+            <Alert type="warning" message={weakMsg || '存在弱引用关系，谨慎操作'} />
           </div>
         )}
         {type === 'STRONG' && (
           <div className="mb10">
-            <Alert type="error" message="存在强引用关系，禁止操作" />
+            <Alert type="error" message={strongMsg || '存在强引用关系，禁止操作'} />
           </div>
         )}
         <div className="relation-reference-detail">
