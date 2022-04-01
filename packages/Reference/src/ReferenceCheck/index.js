@@ -55,7 +55,7 @@ const ReferenceCheck = (props) => {
           </div>
         )}
         <div className="relation-reference-detail">
-          <ReferenceInfo referenceData={referenceData} orgMap={orgMap} appList={appList} />
+          <ReferenceInfo referenceData={referenceData} orgMap={orgMap} appList={appList} unmountHandle={removeModal} />
         </div>
       </Modal>,
       modalWrap

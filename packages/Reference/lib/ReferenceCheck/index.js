@@ -32,7 +32,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var ReferenceCheck = function ReferenceCheck(props) {
   var _ref = props || {},
       _ref$title = _ref.title,
-      title = _ref$title === void 0 ? "引用关系查看" : _ref$title,
+      title = _ref$title === void 0 ? '引用关系查看' : _ref$title,
       rq = _ref.rq,
       checkReferResponse = _ref.checkReferResponse,
       _ref$orgMap = _ref.orgMap,
@@ -40,9 +40,9 @@ var ReferenceCheck = function ReferenceCheck(props) {
       _ref$appList = _ref.appList,
       appList = _ref$appList === void 0 ? [] : _ref$appList,
       _ref$weakMsg = _ref.weakMsg,
-      weakMsg = _ref$weakMsg === void 0 ? "存在弱引用关系，谨慎操作" : _ref$weakMsg,
+      weakMsg = _ref$weakMsg === void 0 ? '存在弱引用关系，谨慎操作' : _ref$weakMsg,
       _ref$strongMsg = _ref.strongMsg,
-      strongMsg = _ref$strongMsg === void 0 ? "存在强引用关系，禁止操作" : _ref$strongMsg;
+      strongMsg = _ref$strongMsg === void 0 ? '存在强引用关系，禁止操作' : _ref$strongMsg;
 
   var appendModal = function appendModal(resolve, _ref2) {
     var type = _ref2.type,
@@ -76,18 +76,19 @@ var ReferenceCheck = function ReferenceCheck(props) {
       className: "mb10"
     }, /*#__PURE__*/React.createElement(_alert["default"], {
       type: "warning",
-      message: weakMsg || "存在弱引用关系，谨慎操作"
+      message: weakMsg || '存在弱引用关系，谨慎操作'
     })), type === 'STRONG' && /*#__PURE__*/React.createElement("div", {
       className: "mb10"
     }, /*#__PURE__*/React.createElement(_alert["default"], {
       type: "error",
-      message: strongMsg || "存在强引用关系，禁止操作"
+      message: strongMsg || '存在强引用关系，禁止操作'
     })), /*#__PURE__*/React.createElement("div", {
       className: "relation-reference-detail"
     }, /*#__PURE__*/React.createElement(_ReferenceInfo.ReferenceInfo, {
       referenceData: referenceData,
       orgMap: orgMap,
-      appList: appList
+      appList: appList,
+      unmountHandle: removeModal
     }))), modalWrap);
 
     document.body.appendChild(modalWrap);

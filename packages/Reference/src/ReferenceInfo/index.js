@@ -3,7 +3,7 @@ import AHref from '../AHref';
 import './index.less';
 
 export const ReferenceInfo = (props) => {
-  const { referenceData = [], orgMap = {}, appList = [], description = '' } = props;
+  const { referenceData = [], orgMap = {}, appList = [], description = '', unmountHandle } = props;
   return (
     <div className="reference-body">
       {!referenceData?.length && (
@@ -29,7 +29,7 @@ export const ReferenceInfo = (props) => {
               }
               if (c.dataIndex === goName) {
                 content = (
-                  <AHref href={record?.goLink} target="_blank">
+                  <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
                     {t}
                   </AHref>
                 );

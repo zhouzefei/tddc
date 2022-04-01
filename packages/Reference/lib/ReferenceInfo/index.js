@@ -45,7 +45,8 @@ var ReferenceInfo = function ReferenceInfo(props) {
       _props$appList = props.appList,
       appList = _props$appList === void 0 ? [] : _props$appList,
       _props$description = props.description,
-      description = _props$description === void 0 ? '' : _props$description;
+      description = _props$description === void 0 ? '' : _props$description,
+      unmountHandle = props.unmountHandle;
   return /*#__PURE__*/React.createElement("div", {
     className: "reference-body"
   }, !(referenceData != null && referenceData.length) && /*#__PURE__*/React.createElement(_empty["default"], {
@@ -90,7 +91,8 @@ var ReferenceInfo = function ReferenceInfo(props) {
           if (c.dataIndex === goName) {
             content = /*#__PURE__*/React.createElement(_AHref["default"], {
               href: record == null ? void 0 : record.goLink,
-              target: "_blank"
+              target: "_blank",
+              unmountHandle: unmountHandle
             }, t);
           }
 

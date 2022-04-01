@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-var _excluded = ["children", "href"];
+var _excluded = ["children", "href", "unmountHandle"];
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -15,12 +15,18 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 var _default = function _default(props) {
   var children = props.children,
       href = props.href,
+      unmountHandle = props.unmountHandle,
       rest = _objectWithoutProperties(props, _excluded);
 
   if (window.__isMultiTab__) {
     return /*#__PURE__*/React.createElement("a", {
       onClick: function onClick(evt) {
         evt.preventDefault();
+
+        if (unmountHandle && typeof unmountHandle === "function") {
+          unmountHandle();
+        }
+
         window.push(href);
       }
     }, children);
