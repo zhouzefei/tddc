@@ -29,11 +29,11 @@ export const ReferenceInfo = (props) => {
               }
               if (c.dataIndex === goName) {
                 return (
-                  <Tooltip title={content} placement="topLeft">
-                    <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
+                  <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
+                    <Tooltip title={content} placement="topLeft">
                       {content || '- -'}
-                    </AHref>
-                  </Tooltip>
+                    </Tooltip>
+                  </AHref>
                 );
               }
               return (

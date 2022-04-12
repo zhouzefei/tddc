@@ -18,7 +18,7 @@ var _default = function _default(props) {
       unmountHandle = props.unmountHandle,
       rest = _objectWithoutProperties(props, _excluded);
 
-  if (window.__isMultiTab__) {
+  if (window.__isMultiTab__ || true) {
     return /*#__PURE__*/React.createElement("a", {
       onClick: function onClick(evt) {
         evt.preventDefault();

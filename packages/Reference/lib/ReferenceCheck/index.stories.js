@@ -36,7 +36,7 @@ var ReferenceCheckTemplate = function ReferenceCheckTemplate() {
           resolve({
             success: true,
             data: {
-              type: "WEAK",
+              type: 'WEAK',
               result: [{
                 columns: [{
                   title: '策略名称',
@@ -81,5 +81,5 @@ var ReferenceCheckTemplate = function ReferenceCheckTemplate() {
 
 exports.ReferenceCheckTemplate = ReferenceCheckTemplate;
 ReferenceCheckTemplate.story = {
-  name: "关联检查"
+  name: '关联检查'
 };
