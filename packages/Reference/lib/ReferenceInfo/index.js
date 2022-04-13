@@ -128,7 +128,8 @@ var ReferenceInfo = function ReferenceInfo(props) {
       title: d == null ? void 0 : d.tips,
       placement: "topLeft"
     }, /*#__PURE__*/React.createElement(_icon["default"], {
-      type: "info-circle"
+      type: "info-circle",
+      className: "ml-6"
     }))), ((_renderColumns = renderColumns) == null ? void 0 : _renderColumns.length) && /*#__PURE__*/React.createElement(_table["default"], {
       bordered: false,
       dataSource: d == null ? void 0 : d.rows,

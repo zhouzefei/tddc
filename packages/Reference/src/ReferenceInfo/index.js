@@ -58,7 +58,7 @@ export const ReferenceInfo = (props) => {
               </span>
               {d?.tips && (
                 <Tooltip title={d?.tips} placement="topLeft">
-                  <Icon type="info-circle" />
+                  <Icon type="info-circle" className="ml-6" />
                 </Tooltip>
               )}
             </Row>

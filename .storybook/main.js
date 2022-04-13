@@ -1,5 +1,6 @@
 const path = require("path");
 const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 function resolve(dir) {
 	return path.join(__dirname, "..", dir);
@@ -46,6 +47,14 @@ module.exports = {
 				]
       }
     ];
+    debugger
+    console.log("config",config)
+    config.plugins = [
+      ...config.plugins,
+      new webpack.ProvidePlugin({
+        React: 'react'
+      })
+    ]
     return config;
   }
 }

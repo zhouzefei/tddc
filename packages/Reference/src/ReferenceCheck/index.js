@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
-import { Modal, Button, Alert, message } from 'antd';
+import { Button, Alert, message } from 'antd';
+import { Modal } from 'tntd';
 import { ReferenceInfo } from '../ReferenceInfo';
 import './index.less';
 
@@ -10,8 +11,8 @@ const ReferenceCheck = (props) => {
     checkReferResponse,
     orgMap = {},
     appList = [],
-    weakMsg = '存在弱引用关系，谨慎操作',
-    strongMsg = '存在强引用关系，禁止操作',
+    weakMsg = '存在弱引用（下线状态、待上线状态、导入待上线状态、保存状态、补数状态、补数成功、补数失败、补数中）关系，谨慎操作',
+    strongMsg = '存在强引用（上线状态、上线审批中、启用状态）关系，禁止操作',
   } = props || {};
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
@@ -44,18 +45,31 @@ const ReferenceCheck = (props) => {
           ),
         ]}
       >
-        {type === 'WEAK' && (
-          <div className="mb10">
-            <Alert type="warning" message={weakMsg || '存在弱引用关系，谨慎操作'} />
+        <div className="reference-check-modal">
+          {type === 'WEAK' && (
+            <div className="mb10">
+              <Alert
+                type="warning"
+                message={
+                  weakMsg ||
+                  '存在弱引用（下线状态、待上线状态、导入待上线状态、保存状态、补数状态、补数成功、补数失败、补数中）关系，谨慎操作'
+                }
+              />
+            </div>
+          )}
+          {type === 'STRONG' && (
+            <div className="mb10">
+              <Alert type="error" message={strongMsg || '存在强引用（上线状态、上线审批中、启用状态）关系，禁止操作'} />
+            </div>
+          )}
+          <div className="relation-reference-detail">
+            <ReferenceInfo
+              referenceData={referenceData}
+              orgMap={orgMap}
+              appList={appList}
+              unmountHandle={removeModal}
+            />
           </div>
-        )}
-        {type === 'STRONG' && (
-          <div className="mb10">
-            <Alert type="error" message={strongMsg || '存在强引用关系，禁止操作'} />
-          </div>
-        )}
-        <div className="relation-reference-detail">
-          <ReferenceInfo referenceData={referenceData} orgMap={orgMap} appList={appList} unmountHandle={removeModal} />
         </div>
       </Modal>,
       modalWrap
