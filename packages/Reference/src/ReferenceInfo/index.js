@@ -3,14 +3,14 @@ import AHref from '../AHref';
 import './index.less';
 
 export const ReferenceInfo = (props) => {
-  const { referenceData = [], orgMap = {}, appList = [], description = '', unmountHandle } = props;
+  const { referenceData = [], orgMap = {}, appList = [], description = '', unmountHandle, imageStyle = {} } = props;
   return (
     <div className="reference-body">
       {!referenceData?.length && (
         <Empty
           description={description || '暂无数据'}
           image={Empty.PRESENTED_IMAGE_SIMPLE}
-          imageStyle={{ marginTop: 120 }}
+          imageStyle={{ marginTop: 120, ...imageStyle }}
         />
       )}
       {referenceData?.map((d, dIndex) => {

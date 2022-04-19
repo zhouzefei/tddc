@@ -46,15 +46,17 @@ var ReferenceInfo = function ReferenceInfo(props) {
       appList = _props$appList === void 0 ? [] : _props$appList,
       _props$description = props.description,
       description = _props$description === void 0 ? '' : _props$description,
-      unmountHandle = props.unmountHandle;
+      unmountHandle = props.unmountHandle,
+      _props$imageStyle = props.imageStyle,
+      imageStyle = _props$imageStyle === void 0 ? {} : _props$imageStyle;
   return /*#__PURE__*/React.createElement("div", {
     className: "reference-body"
   }, !(referenceData != null && referenceData.length) && /*#__PURE__*/React.createElement(_empty["default"], {
     description: description || '暂无数据',
     image: _empty["default"].PRESENTED_IMAGE_SIMPLE,
-    imageStyle: {
+    imageStyle: _objectSpread({
       marginTop: 120
-    }
+    }, imageStyle)
   }), referenceData == null ? void 0 : referenceData.map(function (d, dIndex) {
     var _renderColumns;
 
