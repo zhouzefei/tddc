@@ -40,8 +40,8 @@ const ReferenceOnlineCheck = (props) => {
           <Collapse defaultActiveKey={value || [0]} onChange={onChange}>
             {referenceData?.map((d, i) => {
               let headerTxt = d?.componentName;
-              if (d?.componentId) {
-                headerTxt += `[${d?.componentId}]`;
+              if (d?.componentCode) {
+                headerTxt += `[${d?.componentCode}]`;
               }
               return (
                 <Panel

@@ -79,8 +79,8 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
     }, referenceData == null ? void 0 : referenceData.map(function (d, i) {
       var headerTxt = d == null ? void 0 : d.componentName;
 
-      if (d != null && d.componentId) {
-        headerTxt += "[".concat(d == null ? void 0 : d.componentId, "]");
+      if (d != null && d.componentCode) {
+        headerTxt += "[".concat(d == null ? void 0 : d.componentCode, "]");
       }
 
       return /*#__PURE__*/React.createElement(Panel, {
