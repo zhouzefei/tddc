@@ -105,7 +105,8 @@ var ReferenceDrawer = function ReferenceDrawer(props) {
   }, /*#__PURE__*/React.createElement(_ReferenceInfo.ReferenceInfo, {
     referenceData: referenceData || [],
     appList: appList || [],
-    orgMap: orgMap || {}
+    orgMap: orgMap || {},
+    unmountHandle: onClose
   })));
 };
 

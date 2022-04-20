@@ -37,7 +37,12 @@ const ReferenceDrawer = (props) => {
       {referenceLoad && <Spin className="globalSpin" tip="查询中..."></Spin>}
       {!referenceLoad && (
         <div className="drawer-reference-body">
-          <ReferenceInfo referenceData={referenceData || []} appList={appList || []} orgMap={orgMap || {}} />
+          <ReferenceInfo
+            referenceData={referenceData || []}
+            appList={appList || []}
+            orgMap={orgMap || {}}
+            unmountHandle={onClose}
+          />
         </div>
       )}
     </Drawer>
