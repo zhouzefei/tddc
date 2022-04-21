@@ -27,7 +27,17 @@ var _default = function _default(props) {
           unmountHandle();
         }
 
-        window.push(href);
+        var pathName = href;
+
+        if (href && href.includes("?")) {
+          pathName = href == null ? void 0 : href.split("?")[0];
+        }
+
+        if (pathName === window.location.pathname) {
+          window.location.href = href;
+        } else {
+          window.push(href);
+        }
       }
     }, children);
   }

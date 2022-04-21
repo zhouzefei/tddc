@@ -8,7 +8,15 @@ export default (props) => {
           if (unmountHandle && typeof unmountHandle === 'function') {
             unmountHandle();
           }
-          window.push(href);
+          let pathName = href;
+          if (href && href.includes('?')) {
+            pathName = href?.split('?')[0];
+          }
+          if (pathName === window.location.pathname) {
+            window.location.href = href;
+          } else {
+            window.push(href);
+          }
         }}
       >
         {children}
