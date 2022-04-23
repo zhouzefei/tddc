@@ -50,7 +50,7 @@ const ReferenceOnlineCheck = (props) => {
                       <Tooltip title={headerTxt} placement="topLeft">
                         <span>{headerTxt}</span>
                       </Tooltip>
-                      <Tag color="green">V{d?.componentVersion}</Tag>
+                      {d?.componentVersion && <Tag color="green">V{d?.componentVersion}</Tag>}
                     </div>
                   }
                   key={i}

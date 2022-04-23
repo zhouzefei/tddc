@@ -89,7 +89,7 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
         }, /*#__PURE__*/React.createElement(_tooltip["default"], {
           title: headerTxt,
           placement: "topLeft"
-        }, /*#__PURE__*/React.createElement("span", null, headerTxt)), /*#__PURE__*/React.createElement(_tag["default"], {
+        }, /*#__PURE__*/React.createElement("span", null, headerTxt)), (d == null ? void 0 : d.componentVersion) && /*#__PURE__*/React.createElement(_tag["default"], {
           color: "green"
         }, "V", d == null ? void 0 : d.componentVersion)),
         key: i

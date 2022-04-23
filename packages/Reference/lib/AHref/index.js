@@ -29,8 +29,8 @@ var _default = function _default(props) {
 
         var pathName = href;
 
-        if (href && href.includes("?")) {
-          pathName = href == null ? void 0 : href.split("?")[0];
+        if (href && href.includes('?')) {
+          pathName = href == null ? void 0 : href.split('?')[0];
         }
 
         if (pathName === window.location.pathname) {
