@@ -1,4 +1,5 @@
-import { Tooltip, Icon, Table, Row, Empty } from 'antd';
+import { Tooltip, Icon, Table, Row, Empty, Tag } from 'antd';
+import { Ellipsis } from 'tntd';
 import AHref from '../AHref';
 import './index.less';
 
@@ -27,13 +28,37 @@ export const ReferenceInfo = (props) => {
               if (c.dataIndex === 'app') {
                 content = appList.find((a) => a.key === t)?.name || t;
               }
-              if (c.dataIndex === goName) {
+              if (c.dataIndex === goName && record?.goLink) {
                 return (
                   <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
                     <Tooltip title={content} placement="topLeft">
                       {content || '- -'}
                     </Tooltip>
                   </AHref>
+                );
+              }
+              if (c.dataIndex === goName) {
+                return <Ellipsis copyable={true}>{content}</Ellipsis>;
+              }
+              if (i === 0 && record?.referenceCheckType) {
+                let checkObj;
+                if (record?.referenceCheckType === 'WEAK') {
+                  checkObj = {
+                    name: '弱引用',
+                    className: 'refer-tag-weak',
+                  };
+                }
+                if (record?.referenceCheckType === 'STRONG') {
+                  checkObj = {
+                    name: '强引用',
+                    className: 'refer-tag-strong',
+                  };
+                }
+                return (
+                  <Tooltip placement="topLeft" title={content}>
+                    {checkObj && <span className={`refer-tag ${checkObj.className}`}>{checkObj.name}</span>}
+                    {content || '- -'}
+                  </Tooltip>
                 );
               }
               return (
@@ -44,6 +69,9 @@ export const ReferenceInfo = (props) => {
             };
             if (i === columns?.length - 1) {
               newC.fixed = 'right';
+            }
+            if (i === 0) {
+              newC.width = 180;
             }
             return newC;
           });
@@ -69,7 +97,7 @@ export const ReferenceInfo = (props) => {
                 columns={renderColumns}
                 pagination={false}
                 scroll={{
-                  x: (renderColumns.length - 1) * 140,
+                  x: (renderColumns.length - 1) * 140 + 40,
                 }}
                 rowKey={(e, i) => `${dIndex}_${i}`}
               />

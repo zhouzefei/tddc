@@ -25,6 +25,8 @@ require("antd/es/empty/style");
 
 var _empty = _interopRequireDefault(require("antd/es/empty"));
 
+var _tntd = require("tntd");
+
 var _AHref = _interopRequireDefault(require("../AHref"));
 
 require("./index.less");
@@ -90,7 +92,7 @@ var ReferenceInfo = function ReferenceInfo(props) {
             })) == null ? void 0 : _appList$find.name) || t;
           }
 
-          if (c.dataIndex === goName) {
+          if (c.dataIndex === goName && record != null && record.goLink) {
             return /*#__PURE__*/React.createElement(_AHref["default"], {
               href: record == null ? void 0 : record.goLink,
               target: "_blank",
@@ -101,6 +103,37 @@ var ReferenceInfo = function ReferenceInfo(props) {
             }, content || '- -'));
           }
 
+          if (c.dataIndex === goName) {
+            return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
+              copyable: true
+            }, content);
+          }
+
+          if (i === 0 && record != null && record.referenceCheckType) {
+            var checkObj;
+
+            if ((record == null ? void 0 : record.referenceCheckType) === "WEAK") {
+              checkObj = {
+                name: "弱引用",
+                className: "refer-tag-weak"
+              };
+            }
+
+            if ((record == null ? void 0 : record.referenceCheckType) === "STRONG") {
+              checkObj = {
+                name: "强引用",
+                className: "refer-tag-strong"
+              };
+            }
+
+            return /*#__PURE__*/React.createElement(_tooltip["default"], {
+              placement: "topLeft",
+              title: content
+            }, checkObj && /*#__PURE__*/React.createElement("span", {
+              className: "refer-tag ".concat(checkObj.className)
+            }, checkObj.name), content || '- -');
+          }
+
           return /*#__PURE__*/React.createElement(_tooltip["default"], {
             placement: "topLeft",
             title: content
@@ -109,6 +142,10 @@ var ReferenceInfo = function ReferenceInfo(props) {
 
         if (i === (columns == null ? void 0 : columns.length) - 1) {
           newC.fixed = 'right';
+        }
+
+        if (i === 0) {
+          newC.width = 180;
         }
 
         return newC;
@@ -138,7 +175,7 @@ var ReferenceInfo = function ReferenceInfo(props) {
       columns: renderColumns,
       pagination: false,
       scroll: {
-        x: (renderColumns.length - 1) * 140
+        x: (renderColumns.length - 1) * 140 + 40
       },
       rowKey: function rowKey(e, i) {
         return "".concat(dIndex, "_").concat(i);
