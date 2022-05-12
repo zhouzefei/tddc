@@ -105,6 +105,7 @@ var ReferenceInfo = function ReferenceInfo(props) {
 
           if (c.dataIndex === goName) {
             return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
+              placement: "topLeft",
               copyable: true
             }, content);
           }
@@ -112,17 +113,17 @@ var ReferenceInfo = function ReferenceInfo(props) {
           if (i === 0 && record != null && record.referenceCheckType) {
             var checkObj;
 
-            if ((record == null ? void 0 : record.referenceCheckType) === "WEAK") {
+            if ((record == null ? void 0 : record.referenceCheckType) === 'WEAK') {
               checkObj = {
-                name: "弱引用",
-                className: "refer-tag-weak"
+                name: '弱引用',
+                className: 'refer-tag-weak'
               };
             }
 
-            if ((record == null ? void 0 : record.referenceCheckType) === "STRONG") {
+            if ((record == null ? void 0 : record.referenceCheckType) === 'STRONG') {
               checkObj = {
-                name: "强引用",
-                className: "refer-tag-strong"
+                name: '强引用',
+                className: 'refer-tag-strong'
               };
             }
 
@@ -134,10 +135,10 @@ var ReferenceInfo = function ReferenceInfo(props) {
             }, checkObj.name), content || '- -');
           }
 
-          return /*#__PURE__*/React.createElement(_tooltip["default"], {
-            placement: "topLeft",
-            title: content
-          }, content || '- -');
+          return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
+            widthLimit: 140,
+            placement: "topLeft"
+          }, content || "- -");
         };
 
         if (i === (columns == null ? void 0 : columns.length) - 1) {

@@ -38,7 +38,11 @@ export const ReferenceInfo = (props) => {
                 );
               }
               if (c.dataIndex === goName) {
-                return <Ellipsis copyable={true}>{content}</Ellipsis>;
+                return (
+                  <Ellipsis placement="topLeft" copyable={true}>
+                    {content}
+                  </Ellipsis>
+                );
               }
               if (i === 0 && record?.referenceCheckType) {
                 let checkObj;
@@ -61,10 +65,11 @@ export const ReferenceInfo = (props) => {
                   </Tooltip>
                 );
               }
+
               return (
-                <Tooltip placement="topLeft" title={content}>
+                <Ellipsis widthLimit={140} placement="topLeft">
                   {content || '- -'}
-                </Tooltip>
+                </Ellipsis>
               );
             };
             if (i === columns?.length - 1) {

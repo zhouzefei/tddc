@@ -72,32 +72,30 @@ var DrawerTemplate = function DrawerTemplate() {
       }, {
         title: '策略名称',
         dataIndex: 'version'
-      } // {
-      //   title: '所属机构',
-      //   dataIndex: 'org',
-      // },
-      // {
-      //   title: '所属应用',
-      //   dataIndex: 'app',
-      // },
-      ],
+      }, {
+        title: '所属机构',
+        dataIndex: 'org'
+      }, {
+        title: '所属应用',
+        dataIndex: 'app'
+      }],
       goName: 'code',
       rows: [{
         name: '策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A',
         code: 'policy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phone',
         version: 'v2',
-        // org: 'TongDun',
-        // app: 'TEST',
+        org: 'TongDun',
+        app: 'TEST',
         goLink: '',
-        referenceCheckType: "STRONG"
+        referenceCheckType: 'STRONG'
       }, {
         name: '策略A策略A策略A策略A策略A策略A策略A策略A策略A',
         code: 'policy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phone',
         version: 'v2',
-        // org: 'TongDun',
-        // app: 'TEST',
+        org: 'TongDun',
+        app: '注意流模式策略判断体现在过程判断的适配的字段注意流模式策略判断体现在过程判断的适配的字段',
         goLink: '',
-        referenceCheckType: "WEAK"
+        referenceCheckType: 'WEAK'
       }],
       tips: '注意流模式策略判断体现在过程判断的适配的字段',
       title: '被应用策略【运行区】'
@@ -107,5 +105,5 @@ var DrawerTemplate = function DrawerTemplate() {
 
 exports.DrawerTemplate = DrawerTemplate;
 DrawerTemplate.story = {
-  name: "关联抽屉"
+  name: '关联抽屉'
 };
