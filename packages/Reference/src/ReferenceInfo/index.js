@@ -20,6 +20,16 @@ export const ReferenceInfo = (props) => {
         if (columns?.length) {
           renderColumns = columns?.map((c, i) => {
             const newC = { ...c, width: 140, ellipsis: true };
+            let fixedMaxWid = {};
+            if (i === columns?.length - 1) {
+              newC.fixed = 'right';
+              fixedMaxWid = {
+                widthLimit: 108,
+              };
+            }
+            if (i === 0) {
+              newC.width = 180;
+            }
             newC.render = (t, record) => {
               let content = t;
               if (c.dataIndex === 'org') {
@@ -31,16 +41,16 @@ export const ReferenceInfo = (props) => {
               if (c.dataIndex === goName && record?.goLink) {
                 return (
                   <AHref href={record?.goLink} target="_blank" unmountHandle={unmountHandle}>
-                    <Tooltip title={content} placement="topLeft">
+                    <Ellipsis placement="topLeft" {...fixedMaxWid}>
                       {content || '- -'}
-                    </Tooltip>
+                    </Ellipsis>
                   </AHref>
                 );
               }
               if (c.dataIndex === goName) {
                 return (
-                  <Ellipsis placement="topLeft" copyable={true}>
-                    {content}
+                  <Ellipsis placement="topLeft" copyable={true} {...fixedMaxWid}>
+                    {content || '- -'}
                   </Ellipsis>
                 );
               }
@@ -67,17 +77,12 @@ export const ReferenceInfo = (props) => {
               }
 
               return (
-                <Ellipsis widthLimit={108} placement="topLeft">
+                <Ellipsis placement="topLeft" {...fixedMaxWid}>
                   {content || '- -'}
                 </Ellipsis>
               );
             };
-            if (i === columns?.length - 1) {
-              newC.fixed = 'right';
-            }
-            if (i === 0) {
-              newC.width = 180;
-            }
+
             return newC;
           });
         }

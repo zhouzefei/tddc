@@ -56,8 +56,8 @@ var ReferenceCheckTemplate = function ReferenceCheckTemplate() {
                 }],
                 goName: 'code',
                 rows: [{
-                  name: '策略A',
-                  code: 'policy_phone',
+                  name: '策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A',
+                  code: 'policy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phone',
                   version: 'v2',
                   org: 'TongDun',
                   app: 'TEST',

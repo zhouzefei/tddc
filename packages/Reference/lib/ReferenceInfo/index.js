@@ -33,6 +33,8 @@ require("./index.less");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -75,6 +77,19 @@ var ReferenceInfo = function ReferenceInfo(props) {
           ellipsis: true
         });
 
+        var fixedMaxWid = {};
+
+        if (i === (columns == null ? void 0 : columns.length) - 1) {
+          newC.fixed = 'right';
+          fixedMaxWid = {
+            widthLimit: 108
+          };
+        }
+
+        if (i === 0) {
+          newC.width = 180;
+        }
+
         newC.render = function (t, record) {
           var content = t;
 
@@ -97,17 +112,16 @@ var ReferenceInfo = function ReferenceInfo(props) {
               href: record == null ? void 0 : record.goLink,
               target: "_blank",
               unmountHandle: unmountHandle
-            }, /*#__PURE__*/React.createElement(_tooltip["default"], {
-              title: content,
+            }, /*#__PURE__*/React.createElement(_tntd.Ellipsis, _extends({
               placement: "topLeft"
-            }, content || '- -'));
+            }, fixedMaxWid), content || "- -"));
           }
 
           if (c.dataIndex === goName) {
-            return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
+            return /*#__PURE__*/React.createElement(_tntd.Ellipsis, _extends({
               placement: "topLeft",
               copyable: true
-            }, content);
+            }, fixedMaxWid), content || "- -");
           }
 
           if (i === 0 && record != null && record.referenceCheckType) {
@@ -135,19 +149,10 @@ var ReferenceInfo = function ReferenceInfo(props) {
             }, checkObj.name), content || '- -');
           }
 
-          return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
-            widthLimit: 108,
+          return /*#__PURE__*/React.createElement(_tntd.Ellipsis, _extends({
             placement: "topLeft"
-          }, content || '- -');
+          }, fixedMaxWid), content || '- -');
         };
-
-        if (i === (columns == null ? void 0 : columns.length) - 1) {
-          newC.fixed = 'right';
-        }
-
-        if (i === 0) {
-          newC.width = 180;
-        }
 
         return newC;
       });
