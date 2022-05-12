@@ -67,7 +67,7 @@ export const ReferenceInfo = (props) => {
               }
 
               return (
-                <Ellipsis widthLimit={140} placement="topLeft">
+                <Ellipsis widthLimit={108} placement="topLeft">
                   {content || '- -'}
                 </Ellipsis>
               );

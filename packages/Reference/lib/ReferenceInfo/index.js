@@ -136,9 +136,9 @@ var ReferenceInfo = function ReferenceInfo(props) {
           }
 
           return /*#__PURE__*/React.createElement(_tntd.Ellipsis, {
-            widthLimit: 140,
+            widthLimit: 108,
             placement: "topLeft"
-          }, content || "- -");
+          }, content || '- -');
         };
 
         if (i === (columns == null ? void 0 : columns.length) - 1) {
