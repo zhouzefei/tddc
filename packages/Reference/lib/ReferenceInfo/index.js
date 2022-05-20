@@ -178,6 +178,7 @@ var ReferenceInfo = function ReferenceInfo(props) {
       type: "info-circle",
       className: "ml-6"
     }))), ((_renderColumns = renderColumns) == null ? void 0 : _renderColumns.length) && /*#__PURE__*/React.createElement(_table["default"], {
+      className: "reference-table",
       bordered: false,
       dataSource: d == null ? void 0 : d.rows,
       columns: renderColumns,

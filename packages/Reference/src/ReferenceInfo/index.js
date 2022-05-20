@@ -104,6 +104,7 @@ export const ReferenceInfo = (props) => {
             </Row>
             {renderColumns?.length && (
               <Table
+                className="reference-table"
                 bordered={false}
                 dataSource={d?.rows}
                 columns={renderColumns}
