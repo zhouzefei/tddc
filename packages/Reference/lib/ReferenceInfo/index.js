@@ -80,10 +80,12 @@ var ReferenceInfo = function ReferenceInfo(props) {
         var fixedMaxWid = {};
 
         if (i === (columns == null ? void 0 : columns.length) - 1) {
-          newC.fixed = 'right';
-          fixedMaxWid = {
-            widthLimit: 108
-          };
+          if ((columns == null ? void 0 : columns.length) > 4) {
+            newC.fixed = 'right';
+            fixedMaxWid = {
+              widthLimit: 108
+            };
+          }
         }
 
         if (i === 0) {
@@ -114,14 +116,14 @@ var ReferenceInfo = function ReferenceInfo(props) {
               unmountHandle: unmountHandle
             }, /*#__PURE__*/React.createElement(_tntd.Ellipsis, _extends({
               placement: "topLeft"
-            }, fixedMaxWid), content || "- -"));
+            }, fixedMaxWid), content || '- -'));
           }
 
           if (c.dataIndex === goName) {
             return /*#__PURE__*/React.createElement(_tntd.Ellipsis, _extends({
               placement: "topLeft",
               copyable: true
-            }, fixedMaxWid), content || "- -");
+            }, fixedMaxWid), content || '- -');
           }
 
           if (i === 0 && record != null && record.referenceCheckType) {

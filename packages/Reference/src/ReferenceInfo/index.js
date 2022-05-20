@@ -22,10 +22,12 @@ export const ReferenceInfo = (props) => {
             const newC = { ...c, width: 140, ellipsis: true };
             let fixedMaxWid = {};
             if (i === columns?.length - 1) {
-              newC.fixed = 'right';
-              fixedMaxWid = {
-                widthLimit: 108,
-              };
+              if (columns?.length > 4) {
+                newC.fixed = 'right';
+                fixedMaxWid = {
+                  widthLimit: 108,
+                };
+              }
             }
             if (i === 0) {
               newC.width = 180;

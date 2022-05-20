@@ -36,23 +36,23 @@ export const ReferenceCheckTemplate = () => {
                     },
                     {
                       title: '策略名称',
-                      dataIndex: 'version',
-                    },
-                    {
-                      title: '所属机构',
                       dataIndex: 'org',
                     },
                     {
-                      title: '所属应用',
+                      title: '所属机构',
                       dataIndex: 'app',
+                    },
+                    {
+                      title: '所属应用',
+                      dataIndex: 'version',
                     },
                   ],
                   goName: 'code',
                   rows: [
                     {
                       name: '策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A策略A',
-                      code: 'policy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phone',
-                      version: 'v2',
+                      version: 'policy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phonepolicy_phone',
+                      code: 'v2',
                       org: 'TongDun',
                       app: 'TEST',
                       goLink: 'noah/policyManage?currentTab=2&uuid=policy_phone',
