@@ -11,8 +11,8 @@ const ReferenceCheck = (props) => {
     checkReferResponse,
     orgMap = {},
     appList = [],
-    weakMsg = '存在弱引用（下线状态、待上线状态、导入待上线状态、保存状态、补数状态、补数成功、补数失败、补数中）关系，谨慎操作',
-    strongMsg = '存在强引用（上线状态、上线审批中、启用状态）关系，禁止操作',
+    weakMsg = '存在弱引用（被下线、禁用、待提交/上线、导入待提交/上线、暂存、保存等相关状态组件引用）关系，谨慎操作',
+    strongMsg = '存在强引用（被上线、启用、上下线审批中和指标补数、指标数据准备等相关状态组件引用）关系，禁止操作',
   } = props || {};
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
