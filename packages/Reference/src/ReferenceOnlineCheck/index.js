@@ -17,7 +17,7 @@ const ReferenceOnlineCheck = (props) => {
     onChange = () => {},
   } = props || {};
 
-  const appendModal = (resolve, referenceData = []) => {
+  const appendModal = (reject, referenceData = []) => {
     const modalWrap = document.createElement('div');
     modalWrap.setAttribute('id', 'tddc-reference-online-check-modal');
     const removeModal = () => {
@@ -26,6 +26,7 @@ const ReferenceOnlineCheck = (props) => {
         tddcModal.forEach((ele) => ele?.parentNode?.removeChild(ele));
       }
       modalWrap && modalWrap?.parentNode?.removeChild(modalWrap);
+      reject && reject(referenceData);
     };
     removeModal();
     ReactDOM.render(
@@ -83,7 +84,7 @@ const ReferenceOnlineCheck = (props) => {
         const { success, data } = res || {};
         if (success) {
           if (!!data?.length) {
-            appendModal(resolve, data);
+            appendModal(reject, data);
           } else {
             resolve(data);
           }

@@ -47,12 +47,12 @@ var ReferenceCheck = function ReferenceCheck(props) {
         _ref2$result = _ref2.result,
         referenceData = _ref2$result === void 0 ? [] : _ref2$result;
     var modalWrap = document.createElement('div');
-    modalWrap.setAttribute("id", "tddc-reference-check-modal");
+    modalWrap.setAttribute('id', 'tddc-reference-check-modal');
 
     var removeModal = function removeModal() {
       var _modalWrap$parentNode;
 
-      var tddcModal = document.querySelectorAll("#tddc-reference-check-modal");
+      var tddcModal = document.querySelectorAll('#tddc-reference-check-modal');
 
       if (tddcModal) {
         tddcModal.forEach(function (ele) {

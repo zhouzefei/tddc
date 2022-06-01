@@ -52,15 +52,15 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
       _ref$onChange = _ref.onChange,
       onChange = _ref$onChange === void 0 ? function () {} : _ref$onChange;
 
-  var appendModal = function appendModal(resolve) {
+  var appendModal = function appendModal(reject) {
     var referenceData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
     var modalWrap = document.createElement('div');
-    modalWrap.setAttribute("id", "tddc-reference-online-check-modal");
+    modalWrap.setAttribute('id', 'tddc-reference-online-check-modal');
 
     var removeModal = function removeModal() {
       var _modalWrap$parentNode;
 
-      var tddcModal = document.querySelectorAll("#tddc-reference-online-check-modal");
+      var tddcModal = document.querySelectorAll('#tddc-reference-online-check-modal');
 
       if (tddcModal) {
         tddcModal.forEach(function (ele) {
@@ -71,6 +71,7 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
       }
 
       modalWrap && (modalWrap == null ? void 0 : (_modalWrap$parentNode = modalWrap.parentNode) == null ? void 0 : _modalWrap$parentNode.removeChild(modalWrap));
+      reject && reject(referenceData);
     };
 
     removeModal();
@@ -128,7 +129,7 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
 
         if (success) {
           if (!!(data != null && data.length)) {
-            appendModal(resolve, data);
+            appendModal(reject, data);
           } else {
             resolve(data);
           }
