@@ -47,9 +47,20 @@ var ReferenceCheck = function ReferenceCheck(props) {
         _ref2$result = _ref2.result,
         referenceData = _ref2$result === void 0 ? [] : _ref2$result;
     var modalWrap = document.createElement('div');
+    modalWrap.setAttribute("id", "tddc-reference-check-modal");
 
     var removeModal = function removeModal() {
       var _modalWrap$parentNode;
+
+      var tddcModal = document.querySelectorAll("#tddc-reference-check-modal");
+
+      if (tddcModal) {
+        tddcModal.forEach(function (ele) {
+          var _ele$parentNode;
+
+          return ele == null ? void 0 : (_ele$parentNode = ele.parentNode) == null ? void 0 : _ele$parentNode.removeChild(ele);
+        });
+      }
 
       modalWrap && (modalWrap == null ? void 0 : (_modalWrap$parentNode = modalWrap.parentNode) == null ? void 0 : _modalWrap$parentNode.removeChild(modalWrap));
     };

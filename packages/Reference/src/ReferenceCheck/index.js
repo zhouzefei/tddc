@@ -16,7 +16,12 @@ const ReferenceCheck = (props) => {
   } = props || {};
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
+    modalWrap.setAttribute('id', 'tddc-reference-check-modal');
     const removeModal = () => {
+      const tddcModal = document.querySelectorAll('#tddc-reference-check-modal');
+      if (tddcModal) {
+        tddcModal.forEach((ele) => ele?.parentNode?.removeChild(ele));
+      }
       modalWrap && modalWrap?.parentNode?.removeChild(modalWrap);
     };
     removeModal();

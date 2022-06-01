@@ -55,9 +55,20 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
   var appendModal = function appendModal(resolve) {
     var referenceData = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
     var modalWrap = document.createElement('div');
+    modalWrap.setAttribute("id", "tddc-reference-online-check-modal");
 
     var removeModal = function removeModal() {
       var _modalWrap$parentNode;
+
+      var tddcModal = document.querySelectorAll("#tddc-reference-online-check-modal");
+
+      if (tddcModal) {
+        tddcModal.forEach(function (ele) {
+          var _ele$parentNode;
+
+          return ele == null ? void 0 : (_ele$parentNode = ele.parentNode) == null ? void 0 : _ele$parentNode.removeChild(ele);
+        });
+      }
 
       modalWrap && (modalWrap == null ? void 0 : (_modalWrap$parentNode = modalWrap.parentNode) == null ? void 0 : _modalWrap$parentNode.removeChild(modalWrap));
     };

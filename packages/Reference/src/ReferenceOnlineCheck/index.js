@@ -19,7 +19,12 @@ const ReferenceOnlineCheck = (props) => {
 
   const appendModal = (resolve, referenceData = []) => {
     const modalWrap = document.createElement('div');
+    modalWrap.setAttribute('id', 'tddc-reference-online-check-modal');
     const removeModal = () => {
+      const tddcModal = document.querySelectorAll('#tddc-reference-online-check-modal');
+      if (tddcModal) {
+        tddcModal.forEach((ele) => ele?.parentNode?.removeChild(ele));
+      }
       modalWrap && modalWrap?.parentNode?.removeChild(modalWrap);
     };
     removeModal();
