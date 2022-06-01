@@ -20,8 +20,9 @@ const ReferenceOnlineCheck = (props) => {
   const appendModal = (resolve, referenceData = []) => {
     const modalWrap = document.createElement('div');
     const removeModal = () => {
-      modalWrap && modalWrap.parentNode.removeChild(modalWrap);
+      modalWrap && modalWrap?.parentNode?.removeChild(modalWrap);
     };
+    removeModal();
     ReactDOM.render(
       <Modal
         title={title}

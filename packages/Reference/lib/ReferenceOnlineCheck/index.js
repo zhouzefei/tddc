@@ -57,8 +57,12 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
     var modalWrap = document.createElement('div');
 
     var removeModal = function removeModal() {
-      modalWrap && modalWrap.parentNode.removeChild(modalWrap);
+      var _modalWrap$parentNode;
+
+      modalWrap && (modalWrap == null ? void 0 : (_modalWrap$parentNode = modalWrap.parentNode) == null ? void 0 : _modalWrap$parentNode.removeChild(modalWrap));
     };
+
+    removeModal();
 
     _reactDom["default"].render( /*#__PURE__*/React.createElement(_tntd.Modal, {
       title: title,

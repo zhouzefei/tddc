@@ -17,8 +17,9 @@ const ReferenceCheck = (props) => {
   const appendModal = (resolve, { type, result: referenceData = [] }) => {
     const modalWrap = document.createElement('div');
     const removeModal = () => {
-      modalWrap && modalWrap.parentNode.removeChild(modalWrap);
+      modalWrap && modalWrap?.parentNode?.removeChild(modalWrap);
     };
+    removeModal();
     ReactDOM.render(
       <Modal
         title={title}
