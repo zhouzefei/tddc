@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import { Button, Collapse, message, Tag, Tooltip } from 'antd';
+import { Button, Collapse, message, Tag, Tooltip, Icon } from 'antd';
 import { Modal } from 'tntd';
 import { ReferenceInfo } from '../ReferenceInfo';
 import './index.less';
@@ -8,7 +8,12 @@ const { Panel } = Collapse;
 
 const ReferenceOnlineCheck = (props) => {
   const {
-    title = '上线校验',
+    title = (
+      <>
+        <Icon type="warning" style={{ marginRight: '4px', color: '#EF6555' }} />
+        上线校验失败
+      </>
+    ),
     rq,
     checkReferResponse,
     orgMap = {},

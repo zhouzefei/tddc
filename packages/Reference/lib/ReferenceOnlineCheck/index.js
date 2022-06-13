@@ -21,6 +21,10 @@ require("antd/es/button/style");
 
 var _button = _interopRequireDefault(require("antd/es/button"));
 
+require("antd/es/icon/style");
+
+var _icon = _interopRequireDefault(require("antd/es/icon"));
+
 require("antd/es/collapse/style");
 
 var _collapse = _interopRequireDefault(require("antd/es/collapse"));
@@ -40,7 +44,13 @@ var Panel = _collapse["default"].Panel;
 var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
   var _ref = props || {},
       _ref$title = _ref.title,
-      title = _ref$title === void 0 ? '上线校验' : _ref$title,
+      title = _ref$title === void 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_icon["default"], {
+    type: "warning",
+    style: {
+      marginRight: "4px",
+      color: "#EF6555"
+    }
+  }), "\u4E0A\u7EBF\u6821\u9A8C\u5931\u8D25") : _ref$title,
       rq = _ref.rq,
       checkReferResponse = _ref.checkReferResponse,
       _ref$orgMap = _ref.orgMap,
