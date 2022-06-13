@@ -42,7 +42,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var ReferenceInfo = function ReferenceInfo(props) {
-  var _props$referenceData = props.referenceData,
+  var from = props.from,
+      _props$referenceData = props.referenceData,
       referenceData = _props$referenceData === void 0 ? [] : _props$referenceData,
       _props$orgMap = props.orgMap,
       orgMap = _props$orgMap === void 0 ? {} : _props$orgMap,
@@ -90,6 +91,10 @@ var ReferenceInfo = function ReferenceInfo(props) {
 
         if (i === 0) {
           newC.width = 180;
+        }
+
+        if (from === 'ReferenceOnlineCheck' && c.dataIndex === 'status') {
+          newC.className = 'refer-warning-txt';
         }
 
         newC.render = function (t, record) {

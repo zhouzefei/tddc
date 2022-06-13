@@ -68,6 +68,7 @@ const ReferenceOnlineCheck = (props) => {
                   key={i}
                 >
                   <ReferenceInfo
+                    from="ReferenceOnlineCheck"
                     unmountHandle={removeModal}
                     referenceData={d?.result || []}
                     orgMap={orgMap}

@@ -4,7 +4,15 @@ import AHref from '../AHref';
 import './index.less';
 
 export const ReferenceInfo = (props) => {
-  const { referenceData = [], orgMap = {}, appList = [], description = '', unmountHandle, imageStyle = {} } = props;
+  const {
+    from,
+    referenceData = [],
+    orgMap = {},
+    appList = [],
+    description = '',
+    unmountHandle,
+    imageStyle = {},
+  } = props;
   return (
     <div className="reference-body">
       {!referenceData?.length && (
@@ -31,6 +39,9 @@ export const ReferenceInfo = (props) => {
             }
             if (i === 0) {
               newC.width = 180;
+            }
+            if (from === 'ReferenceOnlineCheck' && c.dataIndex === 'status') {
+              newC.className = 'refer-warning-txt';
             }
             newC.render = (t, record) => {
               let content = t;

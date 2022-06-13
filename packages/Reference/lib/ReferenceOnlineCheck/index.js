@@ -47,8 +47,8 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
       title = _ref$title === void 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(_icon["default"], {
     type: "warning",
     style: {
-      marginRight: "4px",
-      color: "#EF6555"
+      marginRight: '4px',
+      color: '#EF6555'
     }
   }), "\u4E0A\u7EBF\u6821\u9A8C\u5931\u8D25") : _ref$title,
       rq = _ref.rq,
@@ -120,6 +120,7 @@ var ReferenceOnlineCheck = function ReferenceOnlineCheck(props) {
         }, "V", d == null ? void 0 : d.componentVersion)),
         key: i
       }, /*#__PURE__*/React.createElement(_ReferenceInfo.ReferenceInfo, {
+        from: "ReferenceOnlineCheck",
         unmountHandle: removeModal,
         referenceData: (d == null ? void 0 : d.result) || [],
         orgMap: orgMap,
